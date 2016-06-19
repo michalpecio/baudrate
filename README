@@ -1,0 +1,19 @@
+Set/get serial interface baud rate on Linux. Unlike stty, baudrate understands
+the new Linux API which supports arbitrary rates.
+
+USAGE:
+
+	baudrate <device>
+		- prints current baud rate
+
+	baudrate <device> <rate>
+		- requests given rate, prints rate assigned by the driver
+		  (due to HW constraints, this need not be the requested rate)
+
+Normally prints one line indicating speed in bauds.
+
+Prints two lines, corresponding to input and output speed, if those differ.
+Setting different input and output rates is not supported by this tool.
+
+WARNING: some drivers may lie and report the last requested rate even if it
+has been internally adjusted to fit hardware limitations.
